@@ -1,0 +1,291 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Poppins', sans-serif;
+  background:#e8f5e9;
+  color:#094b0c;
+  scroll-behavior:smooth;
+}
+a { text-decoration:none; color:inherit; }
+
+/* Navbar */
+.navbar {
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 40px;
+  z-index:1000;
+  background:transparent;
+  transition:background 0.4s, box-shadow 0.3s;
+}
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+.logo {
+  font-size:1.5rem;
+  font-weight:600;
+  color:#2e7d32;
+}
+.nav-links {
+  list-style:none;
+  display:flex;
+  gap:30px;
+}
+.nav-links li a {
+  padding:6px 10px;
+  font-weight:500;
+  position: relative;
+  transition:background 0.3s, color 0.3s;
+}
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 0;
+  background: #66bb6a;
+  transition: width 0.3s;
+}
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+/* Hamburger – Mobile */
+.hamburger {
+  display:none;
+  flex-direction:column;
+  cursor:pointer;
+}
+.hamburger span {
+  width:25px;
+  height:3px;
+  background:#2e7d32;
+  margin:4px 0;
+  transition:0.3s;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background: url('hero-garden.jpg') center/cover no-repeat fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 70px;
+  animation: zoomIn 10s ease-out infinite alternate;
+}
+@keyframes zoomIn {
+  from { background-size: 100%; }
+  to { background-size: 110%; }
+}
+.overlay {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 100, 0, 0.2));
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-content {
+  text-align: center;
+  color: #fffbfb;
+  padding: 0 20px;
+  max-width: 800px;
+}
+.hero-content h1 {
+  font-size: 4.5rem;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  animation: slideInUp 1s ease-out;
+}
+.hero-content p {
+  font-size: 1.4rem;
+  margin-bottom: 30px;
+  animation: slideInUp 1.2s ease-out;
+}
+.cta-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: #66bb6a;
+  color: #0f0f0f;
+  font-weight: 600;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  animation: slideInUp 1.4s ease-out;
+}
+.cta-btn:hover {
+  background: #388e3c;
+  transform: scale(1.05);
+}
+@keyframes slideInUp {
+  from { transform: translateY(60px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Sections */
+.section {
+  padding:80px 20px;
+  text-align:center;
+}
+.plants-section .grid,
+.gallery-grid {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+  margin-top:30px;
+}
+.card {
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  overflow:hidden;
+  text-align:center;
+  width:220px;
+  transition: transform 0.3s ease, box-shadow 0.3s;
+}
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+.card img {
+  width:100%;
+  height:350px;
+  object-fit:cover;
+}
+.card h3 {
+  padding:12px 0;
+  color:#2e7d32;
+}
+
+/* Tips */
+.tips-section ul {
+  list-style:none;
+  font-size:1rem;
+}
+.tips-section li {
+  margin-bottom:10px;
+}
+
+/* Gardening Tips Grid */
+.tips-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.tip-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 240px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.tip-card span {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.tip-card h4 {
+  font-size: 1.2rem;
+  color: #2e7d32;
+  margin-bottom: 8px;
+}
+
+.tip-card p {
+  font-size: 0.95rem;
+  color: #4e944f;
+}
+
+.tip-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Gallery */
+.gallery-grid img {
+  width:300px;
+  height:380px;
+  border-radius:12px;
+  object-fit:cover;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s;
+}
+.gallery-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Contact */
+.contact-section a {
+  color:#2e7d32;
+  font-weight:500;
+}
+
+/* Contact Section */
+.contact-card {
+  max-width: 500px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  color: #2e7d32;
+}
+
+.contact-item span {
+  font-size: 1.5rem;
+}
+
+.contact-item a {
+  color: #2e7d32;
+  font-weight: 500;
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
+  color: #1b5e20;
+}
+
+.contact-section a:hover {
+  text-decoration:underline;
+}
+
+/* Responsive */
+@media(max-width:900px) {
+  .nav-links { display:none; }
+  .hamburger { display:flex; }
+  .navbar.active .nav-links {
+    display:flex;
+    flex-direction:column;
+    background:#fff;
+    position:absolute;
+    top:60px;
+    right:40px;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  }
+}
